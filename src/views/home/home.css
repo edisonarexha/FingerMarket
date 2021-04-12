@@ -1,0 +1,45 @@
+.home-page {
+  
+  height: 100vh;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+.title-header {
+  font-size: 3rem;
+  padding: 2rem 4rem;
+  color: rgb(255 255 255);
+
+}
+
+.body-text-home {
+  width: 30%;
+  padding: 2rem 4rem;
+  color: white;
+  font-size: 20px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons .mobile-phones {
+  padding: 10px 15px;
+  background-color: rgb(41 42 45 / 59%);
+  color: white;
+  margin: 2rem 1rem 2rem 4rem;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.buttons .pc-devices {
+  padding: 10px 15px;
+  background-color: rgb(255 255 255 / 56%);
+  color: #080707;
+  margin: 2rem 0 2rem 1rem;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+
+}

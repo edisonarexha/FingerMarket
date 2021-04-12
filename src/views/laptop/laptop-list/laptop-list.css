@@ -1,0 +1,44 @@
+.laptop-list-page {
+    padding: 2rem 4rem;
+    background-color: #0f0f0f6e;
+  }
+  
+  .header-list, .body-list {
+    display: flex;
+  }
+  
+  .header-list span, .body-list span {
+    flex: 1;
+    color: white;
+  }
+  
+  .header-list .btn-content, .body-list .btn-content {
+    flex: .5;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .header-list span {
+    font-weight: 600;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    color: white;
+  }
+  
+  .body-list span {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  
+.add-product {
+  padding: 10px 15px;
+  background-color: rgb(19 57 21 / 48%);
+  color: white;
+  margin: 2rem 1rem 2rem 1rem;
+  margin-left: auto;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+}
