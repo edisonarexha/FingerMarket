@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import './delete-phone.css'
+import './delete-laptop.css'
 import {Dialog, DialogTitle, DialogContent} from '@material-ui/core'
 
 
 
-class DeletePhone extends Component{
+class DeleteLaptop extends Component{
 
   state = {
-    MobilePhonesID,
+    LaptopsID
     }
     
-    removeMobile(id) {
-      fetch('http://localhost:5000/api/MobilePhones/'+id,{
-          method:'DELETE',
-          header:{'Accept':'application/json',
-          'Content-Type':'application/json'}
-      }).then(() => this.getMobilePhones())
-    }
+    removeLaptop(id) {
+        fetch('http://localhost:5000/api/Laptops/'+id,{
+            method:'DELETE',
+            header:{'Accept':'application/json',
+            'Content-Type':'application/json'}
+        }).then(() => this.getLaptops())
+      }
     render() {
         return (
           <Dialog className="dialog-wrapper">
@@ -29,7 +29,7 @@ class DeletePhone extends Component{
               </DialogTitle>
               <DialogContent class="container">
                 
-                <input type="button" onClick={() => this.removeMobile(elem.MobilePhonesID)}>YES</input>
+                <input type="button" onClick={() => this.removeMobile(elem.LaptopsID)}>YES</input>
                 <input type="button" onClick={this.props.closeAddView}>NO</input>
               </DialogContent></div>
           </Dialog>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './phone-list.css'
 import AddPhone from './add-phone/add-phone'
 import EditPhone from './edit-phone/edit-phone'
+import DeletePhone from './delete-phone/delete-phone'
 
 class PhoneList extends Component {
   state = {
