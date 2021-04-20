@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import './laptop-list.css'
 import AddLaptop from '../add-laptop/add-laptop'
 import EditLaptop from '../edit-laptop/edit-laptop'
+import DeleteLaptop from '../delete-laptop/delete-laptop'
 
 class LaptopList extends Component {
   state = {
     laptops: [],
     showAddLaptop: false,
-    showEditLaptop: false
+    showEditLaptop: false,
+    showDeleteModal: false
   }
   componentDidMount() {
     this.getLaptops()
@@ -16,6 +18,7 @@ class LaptopList extends Component {
   getLaptops() {
     this.state.showAddLaptop = false
     this.state.showEditLaptop = false
+    this.state.showDeleteModal = false
     fetch('http://localhost:5000/api/Laptops')
         .then(response=> response.json())
         .then(data=>{
@@ -23,19 +26,15 @@ class LaptopList extends Component {
         })
   }
 
-  removeLaptop(id) {
-    fetch('http://localhost:5000/api/Laptops/'+id,{
-        method:'DELETE',
-        header:{'Accept':'application/json',
-        'Content-Type':'application/json'}
-    }).then(() => this.getLaptops())
-  }
 
   setOpenPopup(value) {
     this.setState({showAddLaptop: value})
   }
   setEditValue(value) {
     this.setState({showEditLaptop: value})
+  }
+  setDeleteValue(value) {
+    this.setState({showDeleteModal: value})
   }
 
   render() {
@@ -63,7 +62,7 @@ class LaptopList extends Component {
                       <span className="fas fa-pencil-alt btn-content edit-icon"
                         onClick={() => this.setEditValue(elem)}></span>
                       <span className="far fa-trash-alt btn-content danger-icon"
-                          onClick={() => this.removeLaptop(elem.LaptopsID)}></span>
+                          onClick={() => this.setDeleteValue(elem)}></span>
                     </div>
                 )
             })
@@ -78,6 +77,12 @@ class LaptopList extends Component {
                    closeEditView={() => this.setEditValue(false)}
                          refreshList={() => this.getLaptops()} /> : 
                           ''} 
+
+        {this.state.showDeleteModal ?
+        <DeleteLaptop model={this.state.showDeleteModal}
+                   closeDeleteView={() => this.setDeleteValue(false)}
+                   refreshList={() => this.getLaptops()} /> : 
+                   ''} 
       </div>
     )
   }

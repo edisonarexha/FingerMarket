@@ -10,6 +10,7 @@ class PhoneList extends Component {
     showAddPhone: false,
     showEditPhone: false,
     photoPath: '', 
+    showDeleteModal: false
   }
 
   componentDidMount() { 
@@ -18,6 +19,7 @@ class PhoneList extends Component {
   getMobilePhones(imageName) {
       this.state.showAddPhone = false
       this.state.showEditPhone=false
+      this.state.showDeleteModal= false
       fetch('http://localhost:5000/api/MobilePhones')
         .then(response=> response.json())
         .then(data => {
@@ -25,18 +27,14 @@ class PhoneList extends Component {
         })
   }
 
-  removeMobile(id) {
-    fetch('http://localhost:5000/api/MobilePhones/'+id,{
-        method:'DELETE',
-        header:{'Accept':'application/json',
-        'Content-Type':'application/json'}
-    }).then(() => this.getMobilePhones())
-  }
   setOpenPopup(value) {
     this.setState({showAddPhone: value})
   }
   setEditValue(value) {
     this.setState({showEditPhone: value})
+  }
+  setDeleteValue(value) {
+    this.setState({showDeleteModal: value})
   }
   render() {
     return (
@@ -66,7 +64,7 @@ class PhoneList extends Component {
                     <span className="fas fa-pencil-alt btn-content edit-icon"
                         onClick={() => this.setEditValue(elem)}></span>
                     <span className="far fa-trash-alt btn-content danger-icon"
-                        onClick={() => this.removeMobile(elem.MobilePhonesID)}></span>
+                        onClick={() => this.setDeleteValue(elem)}></span>
                   </div>
               )
           })
@@ -79,6 +77,11 @@ class PhoneList extends Component {
         {this.state.showEditPhone ?
         <EditPhone model={this.state.showEditPhone}
                    closeEditView={() => this.setEditValue(false)}
+                   refreshList={() => this.getMobilePhones()} /> : 
+                   ''} 
+        {this.state.showDeleteModal ?
+        <DeletePhone model={this.state.showDeleteModal}
+                   closeDeleteView={() => this.setDeleteValue(false)}
                    refreshList={() => this.getMobilePhones()} /> : 
                    ''} 
       </div>

@@ -1,3 +1,8 @@
+.x-button{
+    color: white;
+    margin-left: 100%;
+    cursor: pointer;
+}
 .MuiPaper-root{
     width: 600px !important; 
     background-color: #191b19ec !important;
@@ -17,57 +22,44 @@
     align-items:center ;
     width: 100%;
     font-family: "Lucida Console", "Courier New", monospace;
-    cursor: pointer;
+    margin-top: 5%;
+
 }
 
 
-.container {
-    display: flex;
+.d-container {
     flex-direction: column;
+    display: inline-block i !important;
     padding: 5%;
     margin: auto;
     justify-content: space-between;
   }
-.brand{
-    padding: 2%;
-    margin: 0 10px 5px 10px;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-.performance{
-    padding: 2%;
-    margin: 0 10px 5px 10px;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-.price{
-    padding: 2%;
-    margin: 0 10px 5px 10px;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-.button{ 
+.yes-button{ 
     padding: 10px 15px;
-    background-color: rgb(56 109 59 / 82%);
-    color: rgb(255, 255, 255) !important;
+    background-color: rgb(31 49 32 / 82%);
+    color: white;
+    display: inline-block;
     margin: 2rem 1rem 2rem 1rem;
-    margin-left: auto;
+    /* margin-left: 20px; */
     cursor: pointer;
-    width: 200px;
+    width: 100px;
     text-align: center;
     font-weight: 600;
     font-family: "Lucida Console", "Courier New", monospace;
 
 }
-label{
-    color: white;
-    margin-top: 10px;
-}
 
-.label-button {
-    
-    padding: 10px;
-    background: rgba(0,0,0,.9);
-    border-radius: 4px;
+.no-button{ 
+    padding: 10px 15px;
+    background-color: rgb(31 49 32 / 82%);
+    color: white;
+    display: inline-block;
+    margin: 2rem 1rem 2rem 1rem;
+    margin-left: 20%;
     cursor: pointer;
-}
-.image-btn{
-    margin-top: 20px;
+    width: 100px;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Lucida Console", "Courier New", monospace;
+
 }
